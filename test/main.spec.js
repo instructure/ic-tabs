@@ -1,6 +1,7 @@
-module('foo');
+module('existence');
 
-test('foo', function() {
-  equal(ic.tabs.foo(), 'foo');
+test('module exist globally', function() {
+  ok(ic.tabs.TabsComponent, 'tabs exists');
+  ok(ic.tabs.TabComponent, 'tab exists');
 });
 
