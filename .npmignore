@@ -1,0 +1,7 @@
+bower_components
+lib
+test
+tmp
+bower.json
+Brocfile.js
+karama.conf.js
