@@ -13,7 +13,9 @@
     "tests"
   ],
   "dependencies": {
-    "ember": "~1.4.0",
-    "ic-styled": "~1.1.4"
+    "ember": "~1.4.0"
+  },
+  "devDependencies": {
+    "jquery-simulate": "https://raw.github.com/jquery/jquery-simulate/master/jquery.simulate.js"
   }
 }
