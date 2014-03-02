@@ -9,15 +9,15 @@ ic-tab-panel {
 
 ic-tab {
   display: inline-block;
+  padding: 4px 8px;
+  border: 1px solid;
+  cursor: pointer;
 }
 
-ic-tab.is-active {
+ic-tab.active {
   color: red;
 }
 
-ic-tab-panel.is-active {
-  color: red;
-}
 </style>
 
 <script type="text/x-handlebars">
@@ -28,6 +28,7 @@ ic-tab-panel.is-active {
   {{/ic-tab-list}}
 
   {{#ic-tab-panel}}
+    <h2>Foo</h2>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -40,6 +41,7 @@ ic-tab-panel.is-active {
   {{/ic-tab-panel}}
 
   {{#ic-tab-panel}}
+    <h2>Bar</h2>
     <p>
       Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
