@@ -171,11 +171,12 @@ ic-tab:focus:after {
 <script src="../test/support/env.js"></script>
 <script src="../bower_components/jquery/jquery.js"></script>
 <script src="../bower_components/handlebars/handlebars.js"></script>
-<!--<script src="../bower_components/ember/ember.js"></script>-->
-<script src="../bower_components/ember-canary/index.js"></script>
-<!--<script src="../dist/globals/main.js"></script>-->
-<script src="http://localhost:4200/globals/main.js"></script>
+<script src="../bower_components/ember/ember.js"></script>
+<!--<script src="../bower_components/ember-canary/index.js"></script>-->
+<script src="../dist/globals/main.js"></script>
+<!--<script src="http://localhost:4200/globals/main.js"></script>-->
 <script>
+  Ember.testing = true;
   App = Ember.Application.create();
   App.ApplicationController = Ember.Controller.extend({
     queryParams: ['country', 'food'],

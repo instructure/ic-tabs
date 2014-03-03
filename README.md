@@ -32,7 +32,7 @@ Register `ic-tabs` as a [package][rjspackage], then:
 
 ### named-amd
 
-please ... stop ...
+You ought to know what you're doing if this is the case.
 
 ### globals
 
@@ -70,7 +70,7 @@ Usage
 Options
 -------
 
-- `{{ic-tab active-index=prop}}` - binds the active-index to prop,
+- `{{ic-tab selected-index=prop}}` - binds the active-index to prop,
   mostly useful for `queryParams`.
 
 Contributing
@@ -82,6 +82,8 @@ $ npm install
 $ npm test
 # during dev
 $ broccoli serve
+# edit examples/ files and karma.conf to point to
+# localhost:4200/globals/main.js instead of dist/globals/main.js
 # new tab
 $ karma start
 ```
