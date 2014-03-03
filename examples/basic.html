@@ -17,6 +17,8 @@ ic-tab {
   display: inline-block;
   padding: 4px 8px;
   border: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   cursor: pointer;
   margin-bottom: -1px;
 }
@@ -27,8 +29,8 @@ ic-tab[selected] {
 }
 
 ic-tab:focus {
-  color: hsl(208, 99%, 50%);
-  text-shadow: 0 0 8px hsl(208, 99%, 80%);
+  box-shadow: 0 8px 0 0 #fff,
+              0 0 8px hsl(208, 99%, 50%);
   outline: none;
 }
 
@@ -38,6 +40,7 @@ ic-tab:focus {
   width: 300px;
   margin: 40px;
 }
+
 </style>
 
 <script type="text/x-handlebars">
