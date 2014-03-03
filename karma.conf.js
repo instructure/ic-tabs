@@ -4,6 +4,7 @@ module.exports = function(config) {
     frameworks: ['qunit'],
 
     files: [
+      'test/support/env.js',
       'bower_components/jquery/jquery.js',
       'bower_components/handlebars/handlebars.js',
       'bower_components/ember/ember.js',

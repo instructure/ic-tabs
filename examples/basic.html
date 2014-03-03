@@ -15,12 +15,13 @@ ic-tab-list {
 
 ic-tab {
   display: inline-block;
-  padding: 4px 8px;
+  padding: 6px 12px;
   border: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   cursor: pointer;
   margin-bottom: -1px;
+  position: relative;
 }
 
 ic-tab[selected] {
@@ -29,9 +30,29 @@ ic-tab[selected] {
 }
 
 ic-tab:focus {
-  box-shadow: 0 8px 0 0 #fff,
-              0 0 8px hsl(208, 99%, 50%);
+  box-shadow: 0 10px 0 0 #fff,
+              0 0 5px hsl(208, 99%, 50%);
+  border-color: hsl(208, 99%, 50%);
+  border-bottom-color: #fff;
   outline: none;
+}
+
+ic-tab:focus:before,
+ic-tab:focus:after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+}
+
+ic-tab:focus:before {
+  left: -4px;
+}
+
+ic-tab:focus:after {
+  right: -4px;
 }
 
 .demo {
@@ -51,16 +72,15 @@ ic-tab:focus {
 </ul>
 
 <div class="demo">
-
-  {{#ic-tabs}}
+  {{#ic-tabs active-index=country}}
     {{#ic-tab-list}}
-      {{#ic-tab}}Foo{{/ic-tab}}
-      {{#ic-tab}}Bar{{/ic-tab}}
-      {{#ic-tab}}Baz{{/ic-tab}}
+      {{#ic-tab}}USA{{/ic-tab}}
+      {{#ic-tab}}Japan{{/ic-tab}}
+      {{#ic-tab}}Texas{{/ic-tab}}
     {{/ic-tab-list}}
 
-    {{#ic-tab-panel id="foo-panel"}}
-      <h2>Foo</h2>
+    {{#ic-tab-panel}}
+      <h2>USA</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -73,7 +93,7 @@ ic-tab:focus {
     {{/ic-tab-panel}}
 
     {{#ic-tab-panel}}
-      <h2>Bar</h2>
+      <h2>Japan</h2>
       <p>
         Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -85,7 +105,7 @@ ic-tab:focus {
     {{/ic-tab-panel}}
 
     {{#ic-tab-panel}}
-      <h2>Baz</h2>
+      <h2>Texas</h2>
       <p>
         Veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
@@ -100,15 +120,15 @@ ic-tab:focus {
 
 
 <div class="demo">
-
-  {{#ic-tabs query-param="tabs2"}}
+  {{#ic-tabs active-index=food}}
     {{#ic-tab-list}}
-      {{#ic-tab}}Foo{{/ic-tab}}
-      {{#ic-tab active=true}}Bar{{/ic-tab}}
+      {{#ic-tab}}Hamburger{{/ic-tab}}
+      {{#ic-tab}}Noodles{{/ic-tab}}
+      {{#ic-tab}}Toast{{/ic-tab}}
     {{/ic-tab-list}}
 
     {{#ic-tab-panel}}
-      <h2>Foo</h2>
+      <h2>Toast</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -121,8 +141,7 @@ ic-tab:focus {
     {{/ic-tab-panel}}
 
     {{#ic-tab-panel}}
-      <h2>Bar</h2>
-      <p><code>active</code> attribute</p>
+      <h2>Noodles</h2>
       <p>
         Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -132,16 +151,35 @@ ic-tab:focus {
         mollit anim id est laborum.
       </p>
     {{/ic-tab-panel}}
+
+    {{#ic-tab-panel}}
+      <h2>Toast</h2>
+      <p>
+        Veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+        Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+      </p>
+    {{/ic-tab-panel}}
   {{/ic-tabs}}
 </div>
 
 </script>
 
+<script src="../test/support/env.js"></script>
 <script src="../bower_components/jquery/jquery.js"></script>
 <script src="../bower_components/handlebars/handlebars.js"></script>
-<script src="../bower_components/ember/ember.js"></script>
+<!--<script src="../bower_components/ember/ember.js"></script>-->
+<script src="../bower_components/ember-canary/index.js"></script>
 <!--<script src="../dist/globals/main.js"></script>-->
 <script src="http://localhost:4200/globals/main.js"></script>
 <script>
-App = Ember.Application.create();
+  App = Ember.Application.create();
+  App.ApplicationController = Ember.Controller.extend({
+    queryParams: ['country', 'food'],
+    country: null,
+    food: null
+  });
 </script>

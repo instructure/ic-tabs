@@ -45,7 +45,7 @@ Usage
 {{#ic-tabs}}
   {{#ic-tab-list}}
     {{#ic-tab}}Foo{{/ic-tab}}
-    {{#ic-tab active=true}}Bar{{/ic-tab}}
+    {{#ic-tab}}Bar{{/ic-tab}}
     {{#ic-tab}}Baz{{/ic-tab}}
   {{/ic-tab-list}}
 
@@ -70,8 +70,8 @@ Usage
 Options
 -------
 
-- `{{ic-tab active=true}}` - sets the tab as the initial active tab,
-  otherwise the first tab will be active.
+- `{{ic-tab active-index=prop}}` - binds the active-index to prop,
+  mostly useful for `queryParams`.
 
 Contributing
 ------------
