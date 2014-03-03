@@ -52,6 +52,43 @@ ic-tab.active {
     </p>
   {{/ic-tab-panel}}
 {{/ic-tabs}}
+
+<hr>
+
+<p><code>active</code> attribute</p>
+
+{{#ic-tabs}}
+  {{#ic-tab-list}}
+    {{#ic-tab}}Foo{{/ic-tab}}
+    {{#ic-tab active=true}}Bar{{/ic-tab}}
+  {{/ic-tab-list}}
+
+  {{#ic-tab-panel}}
+    <h2>Foo</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.
+    </p>
+  {{/ic-tab-panel}}
+
+  {{#ic-tab-panel}}
+    <h2>Bar</h2>
+    <p>
+      Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.
+    </p>
+  {{/ic-tab-panel}}
+{{/ic-tabs}}
+
 </script>
 
 <script src="../../bower_components/jquery/jquery.js"></script>
