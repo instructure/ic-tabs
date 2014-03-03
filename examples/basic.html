@@ -14,13 +14,17 @@ ic-tab {
   cursor: pointer;
 }
 
-ic-tab.active {
+ic-tab[selected] {
   color: red;
 }
 
 </style>
 
 <script type="text/x-handlebars">
+<ul>
+  <li>keyboard tab to active tab
+  <li>use arrow keys to navigate tab list
+</ul>
 {{#ic-tabs}}
   {{#ic-tab-list}}
     {{#ic-tab}}Foo{{/ic-tab}}
@@ -70,7 +74,7 @@ ic-tab.active {
 
 <p><code>active</code> attribute</p>
 
-{{#ic-tabs}}
+{{#ic-tabs query-param="tabs2"}}
   {{#ic-tab-list}}
     {{#ic-tab}}Foo{{/ic-tab}}
     {{#ic-tab active=true}}Bar{{/ic-tab}}
@@ -104,10 +108,10 @@ ic-tab.active {
 
 </script>
 
-<script src="../../bower_components/jquery/jquery.js"></script>
-<script src="../../bower_components/handlebars/handlebars.js"></script>
-<script src="../../bower_components/ember/ember.js"></script>
-<!--<script src="../../dist/globals/main.js"></script>-->
+<script src="../bower_components/jquery/jquery.js"></script>
+<script src="../bower_components/handlebars/handlebars.js"></script>
+<script src="../bower_components/ember/ember.js"></script>
+<!--<script src="../dist/globals/main.js"></script>-->
 <script src="http://localhost:4200/globals/main.js"></script>
 <script>
 App = Ember.Application.create();
