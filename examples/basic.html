@@ -1,110 +1,136 @@
 <!doctype html public "display of affection">
 <title>ic-tabs demo</title>
 <style>
+body { font-family: sans-serif; }
+
 ic-tabs,
 ic-tab-list,
 ic-tab-panel {
   display: block
 }
 
+ic-tab-list {
+  border-bottom: 1px solid #aaa;
+}
+
 ic-tab {
   display: inline-block;
   padding: 4px 8px;
-  border: 1px solid;
+  border: 1px solid transparent;
   cursor: pointer;
+  margin-bottom: -1px;
 }
 
 ic-tab[selected] {
-  color: red;
+  border-color: #aaa;
+  border-bottom-color: #fff;
 }
 
+ic-tab:focus {
+  color: hsl(208, 99%, 50%);
+  text-shadow: 0 0 8px hsl(208, 99%, 80%);
+  outline: none;
+}
+
+.demo {
+  vertical-align: top;
+  display: inline-block;
+  width: 300px;
+  margin: 40px;
+}
 </style>
 
 <script type="text/x-handlebars">
+
 <ul>
   <li>keyboard tab to active tab
   <li>use arrow keys to navigate tab list
 </ul>
-{{#ic-tabs}}
-  {{#ic-tab-list}}
-    {{#ic-tab}}Foo{{/ic-tab}}
-    {{#ic-tab}}Bar{{/ic-tab}}
-    {{#ic-tab}}Baz{{/ic-tab}}
-  {{/ic-tab-list}}
 
-  {{#ic-tab-panel id="foo-panel"}}
-    <h2>Foo</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum.
-    </p>
-  {{/ic-tab-panel}}
+<div class="demo">
 
-  {{#ic-tab-panel}}
-    <h2>Bar</h2>
-    <p>
-      Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum.
-    </p>
-  {{/ic-tab-panel}}
+  {{#ic-tabs}}
+    {{#ic-tab-list}}
+      {{#ic-tab}}Foo{{/ic-tab}}
+      {{#ic-tab}}Bar{{/ic-tab}}
+      {{#ic-tab}}Baz{{/ic-tab}}
+    {{/ic-tab-list}}
 
-  {{#ic-tab-panel}}
-    <h2>Baz</h2>
-    <p>
-      Veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum.
-      Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
-    </p>
-  {{/ic-tab-panel}}
-{{/ic-tabs}}
+    {{#ic-tab-panel id="foo-panel"}}
+      <h2>Foo</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    {{/ic-tab-panel}}
 
-<hr>
+    {{#ic-tab-panel}}
+      <h2>Bar</h2>
+      <p>
+        Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    {{/ic-tab-panel}}
 
-<p><code>active</code> attribute</p>
+    {{#ic-tab-panel}}
+      <h2>Baz</h2>
+      <p>
+        Veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+        Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+      </p>
+    {{/ic-tab-panel}}
+  {{/ic-tabs}}
+</div>
 
-{{#ic-tabs query-param="tabs2"}}
-  {{#ic-tab-list}}
-    {{#ic-tab}}Foo{{/ic-tab}}
-    {{#ic-tab active=true}}Bar{{/ic-tab}}
-  {{/ic-tab-list}}
 
-  {{#ic-tab-panel}}
-    <h2>Foo</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum.
-    </p>
-  {{/ic-tab-panel}}
+<div class="demo">
 
-  {{#ic-tab-panel}}
-    <h2>Bar</h2>
-    <p>
-      Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum.
-    </p>
-  {{/ic-tab-panel}}
-{{/ic-tabs}}
+  {{#ic-tabs query-param="tabs2"}}
+    {{#ic-tab-list}}
+      {{#ic-tab}}Foo{{/ic-tab}}
+      {{#ic-tab active=true}}Bar{{/ic-tab}}
+    {{/ic-tab-list}}
+
+    {{#ic-tab-panel}}
+      <h2>Foo</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    {{/ic-tab-panel}}
+
+    {{#ic-tab-panel}}
+      <h2>Bar</h2>
+      <p><code>active</code> attribute</p>
+      <p>
+        Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    {{/ic-tab-panel}}
+  {{/ic-tabs}}
+</div>
 
 </script>
 
