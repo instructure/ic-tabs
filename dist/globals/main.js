@@ -104,7 +104,16 @@ exports["default"] = Component.extend({
   },
 
   unregisterTab: function(tab) {
-    this.get('tabs').removeObject(tab);
+    var tabs = this.get('tabs');
+    var index = tab.get('index');
+    var parent = this.get('parentView');
+    tabs.removeObject(tab);
+    if (parent.get('activeTab') == tab) {
+      if (tabs.get('length') === 0) return;
+      var index = (index === 0) ? index : index - 1;
+      var tab = tabs.objectAt(index);
+      parent.select(tab);
+    }
   },
 
   /**
@@ -507,32 +516,15 @@ exports["default"] = Component.extend({
   tabPanels: null,
 
   /**
-   * Set this to the tab you'd like to be initially active. Usually it is
-   * bound to a controller property that is used as a query parameter.
+   * Set this to the tab you'd like to be active. Usually it is bound to a
+   * controller property that is used as a query parameter, but can be bound to
+   * anything.
    *
    * @property 'selected-index'
    * @type Number
    */
 
   'selected-index': 0,
-
-  /**
-   * Validates the selected-index, if its not valid tries to pick the closest
-   * valid index.  This is important mostly for the query-params use-case since
-   * it can be end-user supplied, but also observes the tabPanels so when the
-   * active panel is destroyed we intelligently pick a new tab.
-   *
-   * @method validateSelected
-   * @private
-   */
-
-  validateSelected: function() {
-    var length = this.get('tabList.tabs.length');
-    if (length === 0) return;
-    var index = parseInt(this.get('selected-index'), 10);
-    if (isNaN(index) || index < 0) this.set('selected-index', 0);
-    if (index >= length) this.set('selected-index', length - 1);
-  }.observes('tabPanels.@each'),
 
   /**
    * Creates the `tabPanels` ArrayProxy.

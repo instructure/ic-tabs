@@ -81,7 +81,16 @@ exports["default"] = Component.extend({
   },
 
   unregisterTab: function(tab) {
-    this.get('tabs').removeObject(tab);
+    var tabs = this.get('tabs');
+    var index = tab.get('index');
+    var parent = this.get('parentView');
+    tabs.removeObject(tab);
+    if (parent.get('activeTab') == tab) {
+      if (tabs.get('length') === 0) return;
+      var index = (index === 0) ? index : index - 1;
+      var tab = tabs.objectAt(index);
+      parent.select(tab);
+    }
   },
 
   /**
