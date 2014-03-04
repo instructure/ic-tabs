@@ -6,17 +6,23 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
-    "node_modules",
     "bower_components",
+    "examples",
+    "node_modules",
     "test",
-    "tests"
+    "tmp",
+    "**/.*",
+    "Brocfile.js",
+    "karma.conf.js",
+    "package.json",
+    "testem.json",
+    "TODO.md"
   ],
   "dependencies": {
-    "ember": "^1.3.0",
-    "ember-qunit": "^0.1.3"
+    "ember": "^1.3.0"
   },
   "devDependencies": {
+    "ember-qunit": "^0.1.3",
     "jquery-simulate": "https://raw.github.com/jquery/jquery-simulate/master/jquery.simulate.js",
     "ember-canary": "http://builds.emberjs.com/canary/ember.js"
   }
