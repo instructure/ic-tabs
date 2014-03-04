@@ -1,10 +1,4 @@
 "use strict";
-/*
- * http://www.w3.org/TR/wai-aria/roles#tab
- * http://www.w3.org/TR/wai-aria/roles#tablist
- * http://www.w3.org/TR/wai-aria/roles#tabpanel
- */
-
 var TabComponent = require("./tab")["default"] || require("./tab");
 var TabListComponent = require("./tab-list")["default"] || require("./tab-list");
 var TabPanelComponent = require("./tab-panel")["default"] || require("./tab-panel");

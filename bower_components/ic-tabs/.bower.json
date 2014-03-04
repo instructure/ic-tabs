@@ -1,5 +1,6 @@
 {
   "name": "ic-tabs",
+  "version": "0.1.0",
   "authors": [
     "Ryan Florence <rpflorence@gmail.com>"
   ],
@@ -26,14 +27,13 @@
     "ember-canary": "http://builds.emberjs.com/canary/ember.js"
   },
   "homepage": "https://github.com/instructure/ic-tabs",
-  "_release": "b8f571d8b4",
+  "_release": "0.1.0",
   "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "b8f571d8b4c5ab68386e78ab1af5d6463eeefd72"
+    "type": "version",
+    "tag": "v0.1.0",
+    "commit": "f5db2b2ab6c565f21112b9411aa7e814c2a78451"
   },
   "_source": "git://github.com/instructure/ic-tabs.git",
-  "_target": "*",
-  "_originalSource": "ic-tabs",
-  "_direct": true
+  "_target": "~0.1.0",
+  "_originalSource": "ic-tabs"
 }

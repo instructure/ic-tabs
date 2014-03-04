@@ -5,7 +5,7 @@
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   1.6.0-beta.1+canary.39d2a65a
+ * @version   1.6.0-beta.1+canary.72bccdd8
  */
 
 
@@ -206,7 +206,7 @@ if (!Ember.testing) {
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   1.6.0-beta.1+canary.39d2a65a
+ * @version   1.6.0-beta.1+canary.72bccdd8
  */
 
 
@@ -289,7 +289,7 @@ var define, requireModule, require, requirejs;
 
   @class Ember
   @static
-  @version 1.6.0-beta.1+canary.39d2a65a
+  @version 1.6.0-beta.1+canary.72bccdd8
 */
 
 if ('undefined' === typeof Ember) {
@@ -316,10 +316,10 @@ Ember.toString = function() { return "Ember"; };
 /**
   @property VERSION
   @type String
-  @default '1.6.0-beta.1+canary.39d2a65a'
+  @default '1.6.0-beta.1+canary.72bccdd8'
   @static
 */
-Ember.VERSION = '1.6.0-beta.1+canary.39d2a65a';
+Ember.VERSION = '1.6.0-beta.1+canary.72bccdd8';
 
 /**
   Standard environmental variables. You can define these in a global `EmberENV`
@@ -5783,6 +5783,7 @@ function beforeEvent(keyName) {
 
 /**
   @method addObserver
+  @for Ember
   @param obj
   @param {String} path
   @param {Object|Function} targetOrMethod
@@ -5801,6 +5802,7 @@ Ember.observersFor = function(obj, path) {
 
 /**
   @method removeObserver
+  @for Ember
   @param obj
   @param {String} path
   @param {Object|Function} targetOrMethod
@@ -5815,6 +5817,7 @@ Ember.removeObserver = function(obj, _path, target, method) {
 
 /**
   @method addBeforeObserver
+  @for Ember
   @param obj
   @param {String} path
   @param {Object|Function} targetOrMethod
@@ -5857,6 +5860,7 @@ Ember.beforeObserversFor = function(obj, path) {
 
 /**
   @method removeBeforeObserver
+  @for Ember
   @param obj
   @param {String} path
   @param {Object|Function} targetOrMethod
