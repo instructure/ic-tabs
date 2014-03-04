@@ -2,11 +2,19 @@
 <meta charset="utf-8">
 <title>ic-tabs demo</title>
 <link rel="stylesheet" href="main.css">
-<script type="text/x-handlebars">
+<script src="../bower_components/jquery/jquery.js"></script>
+<script src="../bower_components/handlebars/handlebars.js"></script>
+<script src="../bower_components/ember/ember.js"></script>
+<script src="../bower_components/ic-tabs/dist/globals/main.js"></script>
 
+<script type="text/x-handlebars">
 <ul>
   <li>TODO: make this demo more accessible</li>
 </ul>
+
+<p>
+  Change to the index of the tab to select: {{input type="number" value=selectedTabIndex}}
+</p>
 
 {{#ic-tabs selected-index=selectedTabIndex}}
   {{#ic-tab-list}}
@@ -41,42 +49,39 @@
     </p>
   </form>
 {{/if}}
-
 </script>
 
-<script src="../bower_components/jquery/jquery.js"></script>
-<script src="../bower_components/handlebars/handlebars.js"></script>
-<script src="../bower_components/ember/ember.js"></script>
-<script src="../bower_components/ic-tabs/dist/globals/main.js"></script>
 <script>
-  App = Ember.Application.create();
-  App.ApplicationController = Ember.Controller.extend({
-    selectedTabIndex: 0,
+App = Ember.Application.create();
+App.ApplicationController = Ember.Controller.extend({
+  selectedTabIndex: 0,
 
-    tabs: [{
+  tabs: [
+    {
       name: 'Tikka Masala',
       description: "Chicken tikka masala is chicken tikka, chunks of chicken marinated in spices and yogurt, that is then baked in a tandoor oven, and served in a masala (spice mix) sauce. A tomato and coriander sauce is common, but there is no standard recipe for chicken tikka masala; a survey found that of 48 different recipes, the only common ingredient was chicken. The sauce usually includes tomatoes, frequently as puree; cream and/or coconut cream; and various spices. The sauce or chicken pieces (or both) are coloured orange with food dyes or using foodstuffs such as turmeric powder, paprika powder or tomato purée. Other tikka masala dishes replace chicken with lamb, fish or paneer."
-    }],
-
-    adding: false,
-
-    newTab: {},
-
-    actions: {
-      editNewTab: function() {
-        this.set('adding', true);
-      },
-
-      saveNewTab: function() {
-        var index = this.get('tabs').addObject(this.get('newTab')).length;
-        this.set('adding', false);
-        this.set('newTab', {});
-        this.set('selectedTabIndex', index - 1);
-      },
-
-      removeTab: function(tab) {
-        this.get('tabs').removeObject(tab);
-      }
     }
-  });
+  ],
+
+  adding: false,
+
+  newTab: {},
+
+  actions: {
+    editNewTab: function() {
+      this.set('adding', true);
+    },
+
+    saveNewTab: function() {
+      var index = this.get('tabs').addObject(this.get('newTab')).length - 1;
+      this.set('adding', false);
+      this.set('newTab', {});
+      this.set('selectedTabIndex', index)
+    },
+
+    removeTab: function(tab) {
+      this.get('tabs').removeObject(tab);
+    }
+  }
+});
 </script>
