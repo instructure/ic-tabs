@@ -1,6 +1,8 @@
 ic-tabs
 =======
 
+[![Build Status](https://travis-ci.org/instructure/ic-tabs.png?branch=master)](https://travis-ci.org/instructure/ic-tabs)
+
 [WAI-ARIA][wai-aria] Accessible tab component for [Ember.js][ember].
 
 Installation
