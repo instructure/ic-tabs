@@ -1,11 +1,11 @@
 <!doctype html public "display of affection">
 <title>ic-tabs demo</title>
 <link rel="stylesheet" href="main.css">
-<script type="text/x-handlebars">
 
+<script type="text/x-handlebars">
 <ul>
-  <li>keyboard tab to active tab
-  <li>use arrow keys to navigate tab list
+  <li>Requires the <code>query-params-new</code> feature flag on current ember-canary
+  <li>state is persisted to the query params, refresh to see it in action
 </ul>
 
 <div class="demo">
@@ -105,11 +105,19 @@
 
 </script>
 
+<script>
+  Ember = { ENV: { FEATURES: { 'query-params-new': true }}};
+</script>
 <script src="../bower_components/jquery/jquery.js"></script>
 <script src="../bower_components/handlebars/handlebars.js"></script>
-<script src="../bower_components/ember/ember.js"></script>
+<script src="../bower_components/ember-canary/index.js"></script>
 <script src="../dist/globals/main.js"></script>
 <!--<script src="http://localhost:4200/globals/main.js"></script>-->
 <script>
   App = Ember.Application.create();
+  App.ApplicationController = Ember.Controller.extend({
+    queryParams: ['country', 'food'],
+    country: null,
+    food: null
+  });
 </script>
