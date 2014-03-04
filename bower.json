@@ -14,9 +14,10 @@
   ],
   "dependencies": {
     "ember": "^1.3.0",
-    "ember-qunit": "~0.1.1"
+    "ember-qunit": "^0.1.3"
   },
   "devDependencies": {
-    "jquery-simulate": "https://raw.github.com/jquery/jquery-simulate/master/jquery.simulate.js"
+    "jquery-simulate": "https://raw.github.com/jquery/jquery-simulate/master/jquery.simulate.js",
+    "ember-canary": "http://builds.emberjs.com/canary/ember.js"
   }
 }

@@ -1,20 +1,3 @@
-String.prototype.compile = function() {
-  return Ember.Handlebars.compile(this);
-};
-
-Array.prototype.compile = function() {
-  return Ember.Handlebars.compile(this.join('\n'));
-};
-
-Function.prototype.compile = function() {
-  var template = this.toString().split('\n').slice(1,-1).join('\n') + '\n';
-  return Ember.Handlebars.compile(template);
-}
-
-function lookupComponent(id) {
-  return Ember.View.views[id];
-}
-
 emq.globalize();
 
 setResolver(Ember.DefaultResolver.extend({
@@ -28,4 +11,31 @@ setResolver(Ember.DefaultResolver.extend({
     return this.testSubjects[fullName] || this._super.apply(this, arguments);
   }
 }).create());
+
+Function.prototype.compile = function() {
+  var template = this.toString().split('\n').slice(1,-1).join('\n') + '\n';
+  return Ember.Handlebars.compile(template);
+}
+
+function lookupComponent(id) {
+  return Ember.View.views[id];
+}
+
+function buildComponent(test, props) {
+  props = props || {};
+  var component = test.subject(Ember.merge({
+    template: function(){/*
+      {{#ic-tab-list}}
+        {{#ic-tab id="tab1"}}tab1{{/ic-tab}}
+        {{#ic-tab id="tab2"}}tab2{{/ic-tab}}
+        {{#ic-tab id="tab3"}}tab3{{/ic-tab}}
+      {{/ic-tab-list}}
+      {{#ic-tab-panel id="panel1"}}one{{/ic-tab-panel}}
+      {{#ic-tab-panel id="panel2"}}two{{/ic-tab-panel}}
+      {{#ic-tab-panel id="panel3"}}three{{/ic-tab-panel}}
+    */}.compile()
+  }, props));
+  test.append();
+  return component;
+}
 
