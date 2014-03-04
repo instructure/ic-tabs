@@ -70,6 +70,7 @@ Usage
 {{/ic-tabs}}
 ```
 
+- associations between tabs and tab-panes are inferred by order.
 - `ic-tab-list` must be an immediate child of `ic-tabs`
 - `ic-tab` must be an immediate child of `ic-tab-list`
 - `ic-tab-panel` must be an immediate child of `ic-tabs`

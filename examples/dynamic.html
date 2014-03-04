@@ -1,0 +1,83 @@
+<!doctype html public "display of affection">
+<meta charset="utf-8">
+<title>ic-tabs demo</title>
+<link rel="stylesheet" href="main.css">
+<script type="text/x-handlebars">
+
+<ul>
+  <li>TODO: make this demo more accessible</li>
+</ul>
+
+{{#ic-tabs selected-index=selectedTabIndex}}
+  {{#ic-tab-list}}
+    {{#each tabs}}
+      {{#ic-tab}}
+        <b>{{name}}</b>
+        <button {{action "removeTab" this}}>×</button>
+      {{/ic-tab}}
+    {{/each}}
+    <button {{action "editNewTab"}}>add a tab</button>
+  {{/ic-tab-list}}
+
+  {{#each tabs}}
+    {{#ic-tab-panel}}
+      <p>{{description}}</p>
+    {{/ic-tab-panel}}
+  {{/each}}
+{{/ic-tabs}}
+
+{{#if adding}}
+  <form id="addTabForm" {{action "saveNewTab" on="submit"}}>
+    <p>
+       <label for="name">Tab Label:</label><br>
+       {{input value=newTab.name}}
+    </p>
+    <p>
+      <label for="description">Tab Description:</label><br>
+      {{textarea value=newTab.description}}
+    </p>
+    <p>
+      <button type="submit">save</button>
+    </p>
+  </form>
+{{/if}}
+
+</script>
+
+<script src="../bower_components/jquery/jquery.js"></script>
+<script src="../bower_components/handlebars/handlebars.js"></script>
+<script src="../bower_components/ember/ember.js"></script>
+<!--<script src="../dist/globals/main.js"></script>-->
+<script src="http://localhost:4200/globals/main.js"></script>
+<script>
+  App = Ember.Application.create();
+  App.ApplicationController = Ember.Controller.extend({
+    selectedTabIndex: 0,
+
+    tabs: [{
+      name: 'Tikka Masala',
+      description: "Chicken tikka masala is chicken tikka, chunks of chicken marinated in spices and yogurt, that is then baked in a tandoor oven, and served in a masala (spice mix) sauce. A tomato and coriander sauce is common, but there is no standard recipe for chicken tikka masala; a survey found that of 48 different recipes, the only common ingredient was chicken. The sauce usually includes tomatoes, frequently as puree; cream and/or coconut cream; and various spices. The sauce or chicken pieces (or both) are coloured orange with food dyes or using foodstuffs such as turmeric powder, paprika powder or tomato purée. Other tikka masala dishes replace chicken with lamb, fish or paneer."
+    }],
+
+    adding: false,
+
+    newTab: {},
+
+    actions: {
+      editNewTab: function() {
+        this.set('adding', true);
+      },
+
+      saveNewTab: function() {
+        var index = this.get('tabs').addObject(this.get('newTab')).length;
+        this.set('adding', false);
+        this.set('newTab', {});
+        this.set('selectedTabIndex', index - 1);
+      },
+
+      removeTab: function(tab) {
+        this.get('tabs').removeObject(tab);
+      }
+    }
+  });
+</script>
