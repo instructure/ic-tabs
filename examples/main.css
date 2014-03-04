@@ -59,3 +59,21 @@ ic-tab:focus:after {
   margin: 40px;
 }
 
+#addTabForm {
+  padding: 20px;
+  position: fixed;
+  top: 100px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 400px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+#addTabForm textarea {
+  width: 350px;
+  height: 100px;
+}
+
