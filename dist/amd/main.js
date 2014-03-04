@@ -2,12 +2,6 @@ define(
   ["./tab","./tab-list","./tab-panel","./tabs","ember","exports"],
   function(__dependency1__, __dependency2__, __dependency3__, __dependency4__, __dependency5__, __exports__) {
     "use strict";
-    /*
-     * http://www.w3.org/TR/wai-aria/roles#tab
-     * http://www.w3.org/TR/wai-aria/roles#tablist
-     * http://www.w3.org/TR/wai-aria/roles#tabpanel
-     */
-
     var TabComponent = __dependency1__["default"] || __dependency1__;
     var TabListComponent = __dependency2__["default"] || __dependency2__;
     var TabPanelComponent = __dependency3__["default"] || __dependency3__;
