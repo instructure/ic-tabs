@@ -1,6 +1,7 @@
 <!doctype html public "display of affection">
+<meta charset="utf-8">
 <title>ic-tabs, query-params demo</title>
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="http://instructure.github.io/ic-ember/shared/styles.css">
 <link rel="stylesheet" href="main.css">
 
 <header class="branding padbox">
@@ -8,8 +9,8 @@
   <h2>an accessible ember tabs component</h2>
   <p>By <a href="http://instructure.com">Instructure, Inc</a></p>
   <ul class="navbar" role="nav">
-    <li><a href="basic.html">basic</a>
-    <li><a href="query-params.html">query params</a>
+    <li><a href="index.html">basic</a>
+    <li><a href="query-params.html" class="active">query params</a>
     <li><a href="dynamic.html">dynamic tabs</a>
   </ul>
 </header>
@@ -125,10 +126,10 @@
 <script>
   Ember = { ENV: { FEATURES: { 'query-params-new': true }}};
 </script>
-<script src="../bower_components/jquery/jquery.js"></script>
-<script src="../bower_components/handlebars/handlebars.js"></script>
-<script src="../bower_components/ember-canary/index.js"></script>
-<script src="../bower_components/ic-tabs/dist/globals/main.js"></script>
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/handlebars/handlebars.js"></script>
+<script src="bower_components/ember-canary/index.js"></script>
+<script src="bower_components/ic-tabs/dist/globals/main.js"></script>
 <script>
   App = Ember.Application.create({ rootElement: '#demo' });
   App.ApplicationController = Ember.Controller.extend({
