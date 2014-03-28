@@ -1,5 +1,10 @@
+var moduleFilter = require('broccoli-dist-es6-module');
+var templateFilter = require('broccoli-template-compiler');
+
 module.exports = function(broccoli) {
-  return require('broccoli-dist-es6-module')(broccoli.makeTree('lib'), {
+  var tree = broccoli.makeTree('lib');
+  var templates = templateFilter(tree, {module: true});
+  var modules = moduleFilter(templates, {
     global: 'ic.tabs',
     packageName: 'ic-tabs',
     main: 'main',
@@ -7,5 +12,6 @@ module.exports = function(broccoli) {
       'ember': 'Ember'
     }
   });
+  return modules;
 };
 
