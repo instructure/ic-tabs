@@ -20,6 +20,10 @@
     "karma-html2js-preprocessor": "^0.1.0",
     "karma": "^0.10.9",
     "broccoli-dist-es6-module": "^0.1.8",
-    "broccoli-cli": "0.0.1"
+    "broccoli-cli": "0.0.1",
+    "broccoli-template-compiler": "^1.4.1"
+  },
+  "dependencies": {
+    "ic-styled": "^1.1.6"
   }
 }
