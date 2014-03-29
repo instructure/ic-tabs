@@ -27,6 +27,7 @@ or just grab your preferred distribution from `dist/`.
 
 Then include the script(s) into your application:
 
+
 ### npm+browserify
 
 `require('ic-tabs')`
@@ -43,6 +44,7 @@ You ought to know what you're doing if this is the case.
 
 ### globals
 
+`<script src="bower_components/ic-styled/main.js"></script>`
 `<script src="bower_components/ic-tabs/dist/globals/main.js"></script>`
 
 Usage
