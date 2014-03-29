@@ -4,6 +4,7 @@ var TabComponent = _dereq_("./tab")["default"] || _dereq_("./tab");
 var TabListComponent = _dereq_("./tab-list")["default"] || _dereq_("./tab-list");
 var TabPanelComponent = _dereq_("./tab-panel")["default"] || _dereq_("./tab-panel");
 var TabsComponent = _dereq_("./tabs")["default"] || _dereq_("./tabs");
+var tabsCssTemplate = _dereq_("./tabs-css")["default"] || _dereq_("./tabs-css");
 var Application = window.Ember.Application;
 
 Application.initializer({
@@ -13,6 +14,7 @@ Application.initializer({
     container.register('component:ic-tab-list',  TabListComponent);
     container.register('component:ic-tab-panel', TabPanelComponent);
     container.register('component:ic-tabs',      TabsComponent);
+    container.register('template:components/ic-tabs-css', tabsCssTemplate);
   }
 });
 
@@ -20,7 +22,7 @@ exports.TabComponent = TabComponent;
 exports.TabListComponent = TabListComponent;
 exports.TabPanelComponent = TabPanelComponent;
 exports.TabsComponent = TabsComponent;
-},{"./tab":4,"./tab-list":2,"./tab-panel":3,"./tabs":5}],2:[function(_dereq_,module,exports){
+},{"./tab":4,"./tab-list":2,"./tab-panel":3,"./tabs":6,"./tabs-css":5}],2:[function(_dereq_,module,exports){
 "use strict";
 var Component = window.Ember.Component;
 var ArrayProxy = window.Ember.ArrayProxy;
@@ -62,7 +64,7 @@ exports["default"] = Component.extend({
   activeTab: computed.alias('parentView.activeTab'),
 
   /**
-   * Regsiters itself with the ic-tab component.
+   * Registers itself with the ic-tab component.
    *
    * @method registerWithTabs
    * @private
@@ -488,6 +490,18 @@ exports["default"] = Component.extend({
 
 });
 },{}],5:[function(_dereq_,module,exports){
+"use strict";
+var Ember = window.Ember["default"] || window.Ember;
+exports["default"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  
+
+
+  data.buffer.push("ic-tabs,\nic-tab-list,\nic-tab-panel {\n  display: block\n}\n\nic-tab-list {\n  border-bottom: 1px solid #aaa;\n}\n\nic-tab {\n  display: inline-block;\n  padding: 6px 12px;\n  border: 1px solid transparent;\n  border-top-left-radius: 3px;\n  border-top-right-radius: 3px;\n  cursor: pointer;\n  margin-bottom: -1px;\n  position: relative;\n}\n\nic-tab[selected] {\n  border-color: #aaa;\n  border-bottom-color: #fff;\n}\n\nic-tab:focus {\n  box-shadow: 0 10px 0 0 #fff,\n              0 0 5px hsl(208, 99%, 50%);\n  border-color: hsl(208, 99%, 50%);\n  border-bottom-color: #fff;\n  outline: none;\n}\n\nic-tab:focus:before,\nic-tab:focus:after {\n  content: '';\n  position: absolute;\n  bottom: -6px;\n  width: 5px;\n  height: 5px;\n  background: #fff;\n}\n\nic-tab:focus:before {\n  left: -4px;\n}\n\nic-tab:focus:after {\n  right: -4px;\n}\n\n");
+  
+});
+},{}],6:[function(_dereq_,module,exports){
 "use strict";
 var Component = window.Ember.Component;
 var ArrayProxy = window.Ember.ArrayProxy;

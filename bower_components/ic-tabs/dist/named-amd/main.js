@@ -1,12 +1,13 @@
 define("ic-tabs",
-  ["./tab","./tab-list","./tab-panel","./tabs","ember","exports"],
-  function(__dependency1__, __dependency2__, __dependency3__, __dependency4__, __dependency5__, __exports__) {
+  ["./tab","./tab-list","./tab-panel","./tabs","./tabs-css","ember","exports"],
+  function(__dependency1__, __dependency2__, __dependency3__, __dependency4__, __dependency5__, __dependency6__, __exports__) {
     "use strict";
     var TabComponent = __dependency1__["default"] || __dependency1__;
     var TabListComponent = __dependency2__["default"] || __dependency2__;
     var TabPanelComponent = __dependency3__["default"] || __dependency3__;
     var TabsComponent = __dependency4__["default"] || __dependency4__;
-    var Application = __dependency5__.Application;
+    var tabsCssTemplate = __dependency5__["default"] || __dependency5__;
+    var Application = __dependency6__.Application;
 
     Application.initializer({
       name: 'ic-tabs',
@@ -15,6 +16,7 @@ define("ic-tabs",
         container.register('component:ic-tab-list',  TabListComponent);
         container.register('component:ic-tab-panel', TabPanelComponent);
         container.register('component:ic-tabs',      TabsComponent);
+        container.register('template:components/ic-tabs-css', tabsCssTemplate);
       }
     });
 
@@ -66,7 +68,7 @@ define("ic-tabs",
       activeTab: computed.alias('parentView.activeTab'),
 
       /**
-       * Regsiters itself with the ic-tab component.
+       * Registers itself with the ic-tab component.
        *
        * @method registerWithTabs
        * @private
@@ -494,6 +496,20 @@ define("ic-tabs",
       }.on('willDestroyElement')
 
 
+    });
+  });define("ic-tabs/tabs-css",
+  ["ember","exports"],
+  function(__dependency1__, __exports__) {
+    "use strict";
+    var Ember = __dependency1__["default"] || __dependency1__;
+    __exports__["default"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+    this.compilerInfo = [4,'>= 1.0.0'];
+    helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+      
+
+
+      data.buffer.push("ic-tabs,\nic-tab-list,\nic-tab-panel {\n  display: block\n}\n\nic-tab-list {\n  border-bottom: 1px solid #aaa;\n}\n\nic-tab {\n  display: inline-block;\n  padding: 6px 12px;\n  border: 1px solid transparent;\n  border-top-left-radius: 3px;\n  border-top-right-radius: 3px;\n  cursor: pointer;\n  margin-bottom: -1px;\n  position: relative;\n}\n\nic-tab[selected] {\n  border-color: #aaa;\n  border-bottom-color: #fff;\n}\n\nic-tab:focus {\n  box-shadow: 0 10px 0 0 #fff,\n              0 0 5px hsl(208, 99%, 50%);\n  border-color: hsl(208, 99%, 50%);\n  border-bottom-color: #fff;\n  outline: none;\n}\n\nic-tab:focus:before,\nic-tab:focus:after {\n  content: '';\n  position: absolute;\n  bottom: -6px;\n  width: 5px;\n  height: 5px;\n  background: #fff;\n}\n\nic-tab:focus:before {\n  left: -4px;\n}\n\nic-tab:focus:after {\n  right: -4px;\n}\n\n");
+      
     });
   });define("ic-tabs/tabs",
   ["ember","exports"],

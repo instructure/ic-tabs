@@ -1,6 +1,6 @@
 {
   "name": "ic-tabs",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "authors": [
     "Ryan Florence <rpflorence@gmail.com>"
   ],
@@ -19,11 +19,13 @@
     "TODO.md"
   ],
   "dependencies": {
-    "ember": "^1.3.0"
+    "ember": "^1.3.0",
+    "ic-styled": "~1.1.6"
   },
   "devDependencies": {
     "ember-qunit": "^0.1.3",
     "jquery-simulate": "https://raw.github.com/jquery/jquery-simulate/master/jquery.simulate.js",
-    "ember-canary": "http://builds.emberjs.com/canary/ember.js"
+    "ember-canary": "http://builds.emberjs.com/canary/ember.js",
+    "ic-styled": "~1.1.6"
   }
 }

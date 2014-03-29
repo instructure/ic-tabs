@@ -42,7 +42,7 @@ define(
       activeTab: computed.alias('parentView.activeTab'),
 
       /**
-       * Regsiters itself with the ic-tab component.
+       * Registers itself with the ic-tab component.
        *
        * @method registerWithTabs
        * @private
