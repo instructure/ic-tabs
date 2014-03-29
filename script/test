@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "# running script/test"
+script/build
+node_modules/.bin/karma start --browsers Firefox --single-run
+

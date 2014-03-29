@@ -4,8 +4,7 @@
   "description": "accessible tabs component for ember",
   "main": "index.js",
   "scripts": {
-    "test": "rm -rf dist && ./node_modules/.bin/broccoli build dist && ./node_modules/.bin/karma start --browsers Firefox --single-run",
-    "postinstall": "node_modules/.bin/bower install"
+    "test": "script/test"
   },
   "author": "Ryan Florence <rpflorence@gmail.com>",
   "license": "MIT",
@@ -21,7 +20,8 @@
     "karma": "^0.10.9",
     "broccoli-dist-es6-module": "^0.1.8",
     "broccoli-cli": "0.0.1",
-    "broccoli-template-compiler": "^1.4.1"
+    "broccoli-template-compiler": "^1.4.1",
+    "rf-release": "^0.1.2"
   },
   "dependencies": {
     "ic-styled": "^1.1.6"
