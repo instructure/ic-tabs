@@ -80,7 +80,7 @@ Usage
 Options
 -------
 
-- `{{ic-tab selected-index=prop}}` - binds the active-index to prop,
+- `{{ic-tabs selected-index=prop}}` - binds the active-index to prop,
   mostly useful for `queryParams`.
 
 Contributing
